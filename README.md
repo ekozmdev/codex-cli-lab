@@ -1,5 +1,14 @@
-# OpenAI Codex Lab
+# codex-cli-lab
 
-このリポジトリでは、OpenAI Codex に関するサンプルやドキュメントをまとめています。
+Codex CLIを使うためのメモ集。
 
-詳しい機能の解説は [docs/openai_codex_ja.md](docs/openai_codex_ja.md) を参照してください。
+## リポジトリ
+
+- GitHub: https://github.com/openai/codex
+
+## OpenAI 公式サイト（Codex/CLI）
+
+- Codex 製品ペーßジ: https://openai.com/codex
+- Codex CLI ドキュメント: https://developers.openai.com/codex/cli
+- GPT-5 for Coding: https://cdn.openai.com/API/docs/gpt-5-for-coding-cheatsheet.pdf
+
