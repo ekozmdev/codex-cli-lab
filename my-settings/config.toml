@@ -1,4 +1,8 @@
+# reference: https://github.com/openai/codex/blob/main/docs/config.md#config-reference
+
 model = "gpt-5"
+model_reasoning_effort = "high"
+
 model_provider = "openai"
 
 preferred_auth_method = "chatgpt"
@@ -19,6 +23,10 @@ args = ["-y", "mcp-remote", "https://mcp.deepwiki.com/mcp"]
 [mcp_servers.context7]
 command = "npx"
 args = ["-y", "mcp-remote", "https://mcp.context7.com/mcp"]
+
+# [mcp_servers.tavily]
+# command = "npx"
+# args = ["-y", "mcp-remote", "https://mcp.tavily.com/mcp/?tavilyApiKey=tvly-xxxxxxxxxx"]
 
 [mcp_servers.playwright]
 command = "npx"
