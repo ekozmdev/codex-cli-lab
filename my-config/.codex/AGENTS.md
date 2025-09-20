@@ -24,7 +24,7 @@ They apply to every codebase and every task.
     - Mark debug code clearly with `TODO: Remove debug code before commit` comments.
 
 - Task Management
-  - Always include a task to review everything you create (both code and documentation).
+  - Always include a task to review everything you create or edit (both code and documentation).
 
 - Command Execution
   - Check the current working directory before running any command.
