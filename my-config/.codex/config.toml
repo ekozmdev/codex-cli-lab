@@ -16,21 +16,25 @@ web_search = true
 [sandbox_workspace_write]
 network_access = true
 
-[mcp_servers.deepwiki]
+[mcp_servers.chrome-devtools]
 command = "npx"
-args = ["-y", "mcp-remote", "https://mcp.deepwiki.com/mcp"]
+args = ["chrome-devtools-mcp@latest"]
 
 [mcp_servers.context7]
 command = "npx"
 args = ["-y", "mcp-remote", "https://mcp.context7.com/mcp"]
 
+[mcp_servers.deepwiki]
+command = "npx"
+args = ["-y", "mcp-remote", "https://mcp.deepwiki.com/mcp"]
+
 [mcp_servers.playwright]
 command = "npx"
 args = ["-y", "@playwright/mcp@latest"]
 
-[mcp_servers.codex-as-mcp]
-command = "codex"
-args = ["mcp"]
+# [mcp_servers.codex-as-mcp]
+# command = "codex"
+# args = ["mcp"]
 
 # [mcp_servers.tavily]
 # command = "npx"
