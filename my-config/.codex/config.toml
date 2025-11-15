@@ -10,8 +10,6 @@ preferred_auth_method = "chatgpt"
 sandbox_mode = "workspace-write"
 approval_policy = "on-request"
 
-# [tools]
-# web_search = true
 [feature]
 web_search_request = true
 
