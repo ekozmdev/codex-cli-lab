@@ -10,5 +10,4 @@ Codex CLIを使うためのメモ集。
 
 - Codex 製品ページ: https://openai.com/codex
 - Codex CLI ドキュメント: https://developers.openai.com/codex/cli
-- GPT-5 for Coding: https://cdn.openai.com/API/docs/gpt-5-for-coding-cheatsheet.pdf
-
+- codexの利用状況: https://chatgpt.com/codex/settings/usage
