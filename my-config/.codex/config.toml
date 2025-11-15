@@ -1,6 +1,6 @@
 # reference: https://github.com/openai/codex/blob/main/docs/config.md#config-reference
 
-model = "gpt-5-codex"
+model = "gpt-5.1-codex"
 model_reasoning_effort = "medium"
 
 model_provider = "openai"
@@ -10,8 +10,10 @@ preferred_auth_method = "chatgpt"
 sandbox_mode = "workspace-write"
 approval_policy = "on-request"
 
-[tools]
-web_search = true
+# [tools]
+# web_search = true
+[feature]
+web_search_request = true
 
 [sandbox_workspace_write]
 network_access = true
@@ -28,14 +30,6 @@ args = ["-y", "mcp-remote", "https://mcp.context7.com/mcp"]
 command = "npx"
 args = ["-y", "mcp-remote", "https://mcp.deepwiki.com/mcp"]
 
-# [mcp_servers.playwright]
-# command = "npx"
-# args = ["-y", "@playwright/mcp@latest"]
-
-# [mcp_servers.codex-as-mcp]
-# command = "codex"
-# args = ["mcp"]
-
-# [mcp_servers.tavily]
-# command = "npx"
-# args = ["-y", "mcp-remote", "https://mcp.tavily.com/mcp/?tavilyApiKey=tvly-xxxxxxxxxx"]
+[notice]
+hide_gpt5_1_migration_prompt = true
+¡
