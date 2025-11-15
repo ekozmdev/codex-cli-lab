@@ -32,4 +32,3 @@ args = ["-y", "mcp-remote", "https://mcp.deepwiki.com/mcp"]
 
 [notice]
 hide_gpt5_1_migration_prompt = true
-¡
