@@ -1,6 +1,6 @@
 # reference: https://github.com/openai/codex/blob/main/docs/config.md#config-reference
 
-model = "gpt-5.1-codex"
+model = "gpt-5.1-codex-max"
 model_reasoning_effort = "medium"
 
 model_provider = "openai"
@@ -30,3 +30,4 @@ args = ["-y", "mcp-remote", "https://mcp.deepwiki.com/mcp"]
 
 [notice]
 hide_gpt5_1_migration_prompt = true
+hide_gpt-5.1-codex-max_migration_prompt = true
