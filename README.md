@@ -5,7 +5,7 @@ Codex CLIを使うためのメモ集。
 ## リポジトリ
 
 - GitHub: https://github.com/openai/codex
-- 調査した最新バージョンは`0.71.0`です(2025/12/11)
+- 調査した最新バージョンは`0.72.0`です(2025/12/12)
 
 ## OpenAI 公式サイト（Codex/CLI）
 
