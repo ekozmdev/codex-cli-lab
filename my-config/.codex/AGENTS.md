@@ -14,7 +14,7 @@ They apply to every codebase and every task.
 - Coding
   - Write commit messages that follow the Conventional Commit rules and keep them simple and clear.
   - Prioritize readability and ease of modification in code.
-  - Do not directly create or edit files that are automatically generated or automatically updated by tools.
+  - Do not directly create or edit files that are automatically generated or automatically updated by tools unless explicitly permitted.
     - Examples: package.json (Node.js), pyproject.toml (Python)
 
 - Bug Troubleshooting
