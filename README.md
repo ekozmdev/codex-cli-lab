@@ -1,14 +1,4 @@
-# codex-cli-lab
+# my-codex-cli-settings
 
-Codex CLIを使うためのメモ集。
+codex-cliの設定を保管するリポジトリ
 
-## リポジトリ
-
-- GitHub: https://github.com/openai/codex
-- 調査した最新バージョンは`0.80.0`です(2026/01/09)
-
-## OpenAI 公式サイト（Codex/CLI）
-
-- Codex 製品ページ: https://openai.com/codex
-- Codex CLI ドキュメント: https://developers.openai.com/codex/cli
-- Codexの利用状況: https://chatgpt.com/codex/settings/usage
