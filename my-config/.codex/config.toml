@@ -28,9 +28,6 @@ args = ["-y", "mcp-remote", "https://mcp.context7.com/mcp"]
 command = "npx"
 args = ["-y", "mcp-remote", "https://mcp.deepwiki.com/mcp"]
 
-[mcp_servers.github]
-url = "https://api.githubcopilot.com/mcp/"
-
 [notice]
 hide_gpt5_1_migration_prompt = true
 hide_gpt-5.1-codex-max_migration_promp = true
