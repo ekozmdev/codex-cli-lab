@@ -10,5 +10,8 @@ mkdir -p "$TARGET_DIR"
 cp $SOURCE_DIR/AGENTS.md $TARGET_DIR/AGENTS.md
 cp $SOURCE_DIR/config.toml $TARGET_DIR/config.toml
 cp -r $SOURCE_DIR/prompts/* $TARGET_DIR/prompts/
+if [[ -d "$SOURCE_DIR/rules" ]]; then
+  cp -R "$SOURCE_DIR/rules" "$TARGET_DIR/"
+fi
 
 date "+%Y-%m-%d %H:%M:%S" > "$TARGET_DIR/LAST_UPDATE"
