@@ -1,2 +1,10 @@
 # Allow all git commands to run outside the sandbox.
 prefix_rule(pattern=["git"], decision="allow")
+
+# Require confirmation before git push.
+prefix_rule(pattern=["git", "push"], decision="prompt")
+
+# Deny destructive git commands.
+prefix_rule(pattern=["git", "reset", "--hard"], decision="deny")
+prefix_rule(pattern=["git", "push", "--force"], decision="deny")
+prefix_rule(pattern=["git", "push", "--force-with-lease"], decision="deny")
