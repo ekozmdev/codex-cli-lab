@@ -2,6 +2,10 @@
 
 `uv init` を使って Python プロジェクトを初期化する手順をまとめます。
 
+## 事前確認
+
+- uv コマンドが見つからない場合はユーザーに確認する。
+
 ## 1. 新規プロジェクトを作成する
 
 初期化したいディレクトリに移動して以下のコマンドを実行する
@@ -27,4 +31,4 @@ add-bounds = "major"
 
 ## パッケージ管理方法をプロジェクトのAGENTS.mdに追記
 
-[uvのパッケージ管理方法](/python/uv-manage-dependencies.md)の内容をプロジェクトのAGENTS.mdに追記する
+`uv-manage-dependencies` スキルの `references/uv-manage-dependencies.md` の内容をプロジェクトのAGENTS.mdに追記する
