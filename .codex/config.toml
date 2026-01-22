@@ -8,7 +8,7 @@ model_provider = "openai"
 preferred_auth_method = "chatgpt"
 
 sandbox_mode = "workspace-write"
-approval_policy = "on-failure"
+approval_policy = "on-request"
 
 [features]
 web_search_request = true
