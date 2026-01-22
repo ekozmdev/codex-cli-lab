@@ -12,6 +12,8 @@ approval_policy = "on-failure"
 
 [features]
 web_search_request = true
+unified_exec = true
+collab = true
 
 [sandbox_workspace_write]
 network_access = true
@@ -27,10 +29,3 @@ args = ["-y", "mcp-remote", "https://mcp.context7.com/mcp"]
 [mcp_servers.deepwiki]
 command = "npx"
 args = ["-y", "mcp-remote", "https://mcp.deepwiki.com/mcp"]
-
-[notice]
-hide_gpt5_1_migration_prompt = true
-hide_gpt-5.1-codex-max_migration_promp = true
-
-[notice.model_migrations]
-"gpt-5.1-codex-max" = "gpt-5.2-codex"

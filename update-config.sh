@@ -8,20 +8,37 @@ TARGET_DIR=".codex"
 # 受け入れ先ディレクトリを用意
 mkdir -p "$TARGET_DIR"
 
-# ファイルをコピー
-cp "$SOURCE_DIR/AGENTS.md" "$TARGET_DIR/AGENTS.md"
-cp "$SOURCE_DIR/config.toml" "$TARGET_DIR/config.toml"
+# 明示的に対象を列挙して同期（削除も反映）
+FILE_ITEMS=(
+  "AGENTS.md"
+  "config.toml"
+)
 
-# ディレクトリは存在する場合のみコピー
-if [[ -d "$SOURCE_DIR/prompts" ]]; then
-  cp -R "$SOURCE_DIR/prompts" "$TARGET_DIR/"
-fi
-if [[ -d "$SOURCE_DIR/skills" ]]; then
-  cp -R "$SOURCE_DIR/skills" "$TARGET_DIR/"
-fi
-if [[ -d "$SOURCE_DIR/rules" ]]; then
-  cp -R "$SOURCE_DIR/rules" "$TARGET_DIR/"
-fi
+DIR_ITEMS=(
+  "prompts"
+  "skills"
+  "rules"
+)
+
+for item in "${FILE_ITEMS[@]}"; do
+  src="$SOURCE_DIR/$item"
+  dest="$TARGET_DIR/$item"
+  if [[ -f "$src" ]]; then
+    rsync -a "$src" "$dest"
+  else
+    rm -f "$dest"
+  fi
+done
+
+for item in "${DIR_ITEMS[@]}"; do
+  src="$SOURCE_DIR/$item"
+  dest="$TARGET_DIR/$item"
+  if [[ -d "$src" ]]; then
+    rsync -a --delete "$src/" "$dest/"
+  else
+    rm -rf "$dest"
+  fi
+done
 
 # 更新時刻を記録
-date "+%Y-%m-%d %H:%M:%S" > "$TARGET_DIR/LAST_UPDATE"
+date "+%Y-%m-%d %H:%M:%S" > "./LAST_UPDATE"
