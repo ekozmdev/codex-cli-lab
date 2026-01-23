@@ -10,9 +10,11 @@ description: Volta で不要になった Node.js バージョンを手動で削�
 Volta で管理している不要な Node.js バージョンを、`~/.volta` 配下の実体削除で掃除する手順をまとめる。
 
 ## 前提
+
 - `volta uninstall node@<version>` というコマンドは存在しない。
 
 ## 削除手順
+
 1. 現状を確認する。
 ```bash
 volta list all
