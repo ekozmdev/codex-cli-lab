@@ -1,36 +1,42 @@
 ---
 name: git-pre-push
-description: --no-pager の status / diff を使ってプッシュ前に確認するためのスキル。ユーザーが「プッシュして」「公開して」「push したい」と言ったときに使う。main に push する場合は必ず確認する。
+description: ユーザーが「プッシュして」「公開して」「push したい」と言ったときに使う。プッシュ前にブランチと未プッシュコミットを確認するスキル。
 ---
 
 # Git Pre Push
 
 ## 概要
 
-プッシュ前に no-pager の Git 確認を行い、main への push は必ず確認を取る。
+プッシュ前にブランチと未プッシュコミットを確認し、main への push は必ず確認を取る。
 
 ## 手順
 
-1. 下のコマンドを順番に実行する。
-2. status 出力から現在ブランチを特定する。
-3. main の場合は push 前に明示的な確認を取る。
-4. 含まれるコミットを簡潔に説明する。
-5. 確認内容を要約し、ユーザーの承諾後にのみ進める。
-
-## コマンド（順番どおりに実行）
+1. 現在のブランチを確認する。main の場合は push して良いかユーザーに確認する。
 
 ```sh
-git --no-pager status --short --branch
-git --no-pager diff
+git --no-pager branch
+```
+
+2. 作業ツリーの変更有無を確認する。
+
+```sh
+git --no-pager status --short
+```
+
+3. 上流との差分コミットを確認する。
+
+```sh
 git --no-pager log --oneline --decorate --reverse @{u}..HEAD
 ```
 
-## 注意
+4. 上流がない場合は直近コミットを確認する。
 
-- status からブランチが分からない場合は次を実行する:
-  ```sh
-  git --no-pager branch --show-current
-  ```
-- 上流がない場合は `git --no-pager log --oneline --decorate -n 10` で直近を説明する。
-- 含まれるコミットはタイトル中心で短くまとめる。
-- ユーザーが確認するまで push しない。
+```sh
+git --no-pager log --oneline --decorate -n 10
+```
+
+5. ユーザーが OK なら push する。
+
+```sh
+git push
+```
