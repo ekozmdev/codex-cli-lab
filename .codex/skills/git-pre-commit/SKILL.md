@@ -39,12 +39,16 @@ git --no-pager diff
 
 ```sh
 git add <file> [<file> ...]
-git commit -m "prefix: 変更内容を簡潔に一文日本語で"
 ```
 
 6. 分割しない場合、または残りをまとめてコミットする（OK の場合のみ）。
 
 ```sh
 git add -A
+```
+
+7. `Conventional Commit`のフォーマットに従い、"prefix: 変更内容を簡潔に、一文の日本語"の形式でコミットメッセージをつけてコミットする。
+
+```sh
 git commit -m "prefix: 変更内容を簡潔に一文日本語で"
 ```

@@ -13,6 +13,7 @@ approval_policy = "on-request"
 [features]
 web_search_request = true
 unified_exec = true
+collab = true
 collaboration_modes = true
 
 [sandbox_workspace_write]
