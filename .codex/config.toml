@@ -27,9 +27,15 @@ args = ["chrome-devtools-mcp@latest"]
 enabled = true
 
 [mcp_servers.context7]
-command = "npx"
-args = ["-y", "mcp-remote", "https://mcp.context7.com/mcp"]
+url = "https://mcp.context7.com/mcp"
+enabled = true
+
 
 [mcp_servers.deepwiki]
-command = "npx"
-args = ["-y", "mcp-remote", "https://mcp.deepwiki.com/mcp"]
+url = "https://mcp.deepwiki.com/mcp"
+enabled = true
+
+
+[mcp_servers.aws_knowledge]
+url = "https://knowledge-mcp.global.api.aws"
+enabled = true
