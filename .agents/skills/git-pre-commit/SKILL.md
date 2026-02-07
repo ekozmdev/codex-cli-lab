@@ -14,7 +14,7 @@ description: ユーザーが「コミットして」「コミット作って」�
 1. リポジトリで確認スクリプトを実行する（読み取り専用）。
 
 ```sh
-bash ~/.codex/skills/git-pre-commit/scripts/pre_commit_check.sh
+bash ~/.agents/skills/git-pre-commit/scripts/pre_commit_check.sh
 ```
 
 2. 出力のブランチが main の場合は、そのままコミットして良いかユーザーに確認する。
