@@ -14,7 +14,7 @@ description: ユーザーが「プッシュして」「公開して」「push �
 1. リポジトリで確認スクリプトを実行する（読み取り専用）。
 
 ```sh
-bash ~/.codex/skills/git-pre-push/scripts/pre_push_check.sh
+bash ~/.agents/skills/git-pre-push/scripts/pre_push_check.sh
 ```
 
 2. 出力のブランチが main の場合は、そのまま push して良いかユーザーに確認する。
