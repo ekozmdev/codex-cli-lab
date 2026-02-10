@@ -1,45 +1,51 @@
 # AGENTS.md
 
-このファイルは、このリポジトリ運用用の手順書。
-`.codex/AGENTS.md`（ユーザーレベル設定として同期する実体）とは分けて管理する。
+- このファイルは、このリポジトリ運用用の手順書です。
+- `.codex/AGENTS.md`はユーザーレベル設定として同期する実体のため、このファイルとは別物です。
 
 ## 管理対象
+
 - `.codex/AGENTS.md`
 - `.codex/config.toml`
 - `.codex/rules`
 
 ## Config Sync Workflow
+
 ### 1. `.draft` にスナップショットを作成する
+
 ```sh
-TODAY="$(date +%F)"
+DATE="$(date +%F)"
 mkdir -p .draft
-cp -f ~/.codex/AGENTS.md ".draft/${TODAY}-AGENTS.md"
-cp -f ~/.codex/config.toml ".draft/${TODAY}-config.toml"
-rm -rf ".draft/${TODAY}-rules"
-cp -R ~/.codex/rules ".draft/${TODAY}-rules"
+cp -f ~/.codex/AGENTS.md ".draft/${DATE}-AGENTS.md"
+cp -f ~/.codex/config.toml ".draft/${DATE}-config.toml"
+rm -rf ".draft/${DATE}-rules"
+cp -R ~/.codex/rules ".draft/${DATE}-rules"
 ```
 
-### 2. 日付付きスナップショットとの差分を確認する
+### 2. `.draft` とリポジトリ管理設定の差分を確認する
+
 ```sh
-SNAPSHOT_DATE="YYYY-MM-DD"
-diff -u .codex/AGENTS.md ".draft/${SNAPSHOT_DATE}-AGENTS.md" || true
-diff -u .codex/config.toml ".draft/${SNAPSHOT_DATE}-config.toml" || true
-diff -ru .codex/rules ".draft/${SNAPSHOT_DATE}-rules" || true
+DATE="YYYY-MM-DD"
+diff -u ".draft/${DATE}-AGENTS.md" .codex/AGENTS.md
+diff -u ".draft/${DATE}-config.toml" .codex/config.toml
+diff -ru ".draft/${DATE}-rules" .codex/rules
 ```
 
-### 3. `default.rules` の追加分を整理する
-```sh
-diff -u ".draft/${SNAPSHOT_DATE}-rules/default.rules" ".codex/rules/default.rules" || true
-```
+### 3. 変更した内容をユーザーに説明し、相談しながらリポジトリ側へ反映する
 
-- 追加されているルールがある場合、`default.rules` に残すか、別の `*.rules` に分割するかを必ずユーザーに確認する。
-- 既存ルールを削除候補にする場合も、削除してよいかを必ずユーザーに確認する。
-- ユーザー確認なしで `default.rules` から別ファイルへ移動・削除しない。
-- 分割する場合は、用途が分かるファイル名（例: `python.rules` `local.rules`）に整理する。
+1. `AGENTS.md`（`.codex/AGENTS.md`）で変更した内容を説明する。
+   採用する差分がある場合は、リポジトリ側の `.codex/AGENTS.md` を修正する。
+2. `config.toml`（`.codex/config.toml`）で変更した内容を説明する。
+   採用する差分がある場合は、リポジトリ側の `.codex/config.toml` を修正する。
+3. `rules`（`.codex/rules`）で変更した内容を説明する。
+   `default.rules` の各ルールを 1 件ずつ説明し、要る・要らないをユーザーと判断する。
+   要る場合は、既存 `*.rules` に追記するか新規 `*.rules` を作成するかをユーザーと相談して決めて移す。
+   要らない場合は、ユーザー合意のうえで削除する。
+   このステップの完了条件は `.codex/rules/default.rules` を空にすること。
+4. ユーザーと合意した内容だけを反映し、未合意の変更は反映しない。
 
-### 4. 差分を評価・マージ・整理してリポジトリ側を更新する
+### 4. 管理対象のみを `~/.codex` へ同期する
 
-### 5. 管理対象のみを `~/.codex` へ同期する
 ```sh
 mkdir -p "$HOME/.codex"
 cp -f .codex/AGENTS.md "$HOME/.codex/AGENTS.md"
@@ -48,15 +54,19 @@ mkdir -p "$HOME/.codex/rules"
 rsync -a --delete .codex/rules/ "$HOME/.codex/rules/"
 ```
 
-### 6. `.draft` の中身を削除する（`.gitkeep` は残す）
+### 5. `.draft` の中身を削除する（`.gitkeep` は残す）
+
 ```sh
-find .draft -mindepth 1 -maxdepth 1 ! -name '.gitkeep' -exec rm -rf {} +
+DATE="YYYY-MM-DD"
+rm -f ".draft/${DATE}-AGENTS.md"
+rm -f ".draft/${DATE}-config.toml"
+rm -rf ".draft/${DATE}-rules"
 ```
 
-### 7. 作成・編集した内容をレビューする
-```sh
-git status --short
-git diff -- AGENTS.md README.md .codex/AGENTS.md
-```
+### 6. 変更内容をレビューしてまとめを報告する
+
+- `AGENTS.md`、`.codex/AGENTS.md`、`.codex/config.toml`、`.codex/rules`について、何をどう変更したかをユーザーに説明する。
+
+### 7. 変更をコミットしてプッシュする
 
 - `.draft` はディレクトリ本体（`.gitkeep`）のみをコミットし、退避した中身はコミットしない。
