@@ -1,7 +1,6 @@
 # AGENTS.md
 
-- These instructions are set at the user level.
-- They apply to every codebase and every task.
+- These user-level instructions apply to every codebase and task.
 
 ## Communication
   - ユーザーとは日本語で会話してください.
@@ -17,16 +16,11 @@
     - Examples: package.json (Node.js), pyproject.toml (Python)
 
 ## Bug Troubleshooting
-  - When the user reports an error, identify the cause first and report it.
-  - Do not fix the code before reporting the cause.
-  - For complex issues, add temporary debug logging to observe behavior, then remove it after resolution.
-    - Mark debug code clearly with `TODO: Remove debug code before commit` comments.
+  - When the user reports an error, identify and report the cause before fixing any code.
+  - For complex issues, add temporary debug logging to observe behavior, mark it with `TODO: Remove debug code before commit`, and remove it after resolution.
 
 ## Task Management
-  - Always include a task to review everything you create or edit (both code and documentation).
-
-## Command Execution
-  - Check the current working directory before running any command.
+  - Always include a review task for everything you create or edit, including code and documentation.
 
 ## Sub-agents
   - Spawn sub-agents when needed:

@@ -36,6 +36,6 @@ url = "https://mcp.deepwiki.com/mcp"
 enabled = true
 
 
-[mcp_servers.aws_knowledge]
-url = "https://knowledge-mcp.global.api.aws"
-enabled = true
+#[mcp_servers.aws_knowledge]
+#url = "https://knowledge-mcp.global.api.aws"
+#enabled = true
