@@ -23,6 +23,7 @@
   - Always include a review task for everything you create or edit, including code and documentation.
 
 ## Sub-agents
+  - Before invoking a sub-agent, explicitly state the sub-agent name you are about to call.
   - Spawn sub-agents when needed:
     - Large-scale file reading or exploration across many files
     - A second-perspective review is needed (design, risk, testing)

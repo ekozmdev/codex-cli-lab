@@ -15,8 +15,19 @@ personality = "pragmatic"
 
 [features]
 unified_exec = true
-collab = true
+multi_agent = true
 collaboration_modes = true
+
+[agents]
+max_threads = 6
+
+[agents.web_researcher]
+description = "Web research specialist. Prioritize up-to-date sources and cite links."
+config_file = "~/.codex/agents/web_researcher.toml"
+
+[agents.reviewer]
+description = "Code reviewer focused on correctness, regressions, and test gaps."
+config_file = "~/.codex/agents/reviewer.toml"
 
 [sandbox_workspace_write]
 network_access = true

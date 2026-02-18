@@ -1,0 +1,3 @@
+# Forbid removing volumes with docker compose down.
+prefix_rule(pattern=["docker", "compose", "down", "-v"], decision="forbidden")
+prefix_rule(pattern=["docker", "compose", "down", "--volumes"], decision="forbidden")
